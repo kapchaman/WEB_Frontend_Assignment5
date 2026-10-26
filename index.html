@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Alikhan's after-hours observatory: a flight simulator, an Astro Club night board and a crew ID maker.">
+  <title>ORBIT — After Hours Observatory</title>
+  <link rel="icon" href="assets/orbit.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="js/task1-battle.js" defer></script>
+  <script src="js/task2-board.js" defer></script>
+  <script src="js/task3-crew.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Orbit home"><span class="brand-mark" aria-hidden="true">◎</span> ORBIT<span class="brand-note">AFTER HOURS</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#simulation"><span>01</span> Flight sim</a>
+      <a href="#night-board"><span>02</span> Night board</a>
+      <a href="#crew"><span>03</span> Crew ID</a>
+    </nav>
+    <span class="header-status"><i aria-hidden="true"></i> PERSONAL OBSERVATORY</span>
+  </header>
+
+  <main id="main">
+    <section class="hero wrap" id="top" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="live-dot" aria-hidden="true"></span> ASTANA, KZ / AFTER THE LAST CLASS</p>
+        <h1 id="hero-title">Stay curious.<br>Stay <em>in orbit.</em></h1>
+        <p class="hero-description">A little space for big questions. Run a flight simulation, plan the next Astro Club night, and find your place in the crew.</p>
+        <a class="button primary" href="#simulation">Enter the observatory <span aria-hidden="true">↗</span></a>
+        <div class="hero-signature"><span class="signature-line" aria-hidden="true"></span> A personal project by <strong>Alikhan Shikhiyev</strong></div>
+      </div>
+      <div class="orbital-art" role="img" aria-label="Stylized orbital instrument with an illuminated planet and elliptical trajectories">
+        <div class="art-top"><span>ORBITAL STUDY / 001</span><span>ILLUSTRATION</span></div>
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit orbit-three"></div>
+        <div class="planet"><div class="planet-line"></div></div>
+        <span class="satellite"></span><span class="star star-one">+</span><span class="star star-two">+</span><span class="star star-three">+</span>
+        <div class="art-bottom"><span>◎ LOCAL SYSTEM</span><span>KEEP LOOKING UP ↗</span></div>
+      </div>
+    </section>
+    <div class="manifesto wrap"><span>SCIENCE AFTER SUNSET</span><p>Telescopes out. Guitars nearby. Notifications off.</p><span class="manifesto-end">EST. IN CURIOSITY</span></div>
+
+    <section class="section wrap" id="simulation" aria-labelledby="sim-title">
+      <div class="section-heading"><div><p class="eyebrow">01 / THE FLIGHT DECK</p><h2 id="sim-title">One more orbit.</h2></div><p>A rogue drone blocks the route home.<br>Keep your ship in one piece.</p></div>
+      <div class="sim-layout">
+        <div class="battle panel" id="battle-panel">
+          <div class="panel-top"><span class="eyebrow">TACTICAL SIMULATION</span><span class="pill" id="battle-phase">AWAITING YOUR MOVE</span></div>
+          <div class="arena">
+            <div class="fighter"><span class="fighter-id">01 / YOUR SHIP</span><div class="ship ship-hero" aria-hidden="true">△</div><h3>Steppe Voyager</h3><div class="health-label"><span>Hull integrity</span><strong id="hero-hp-text">100 / 100</strong></div><progress id="hero-hp" max="100" value="100" aria-label="Your ship HP"></progress></div>
+            <div class="versus"><span>VS</span><small>ROUND <b id="round-number">0</b></small></div>
+            <div class="fighter"><span class="fighter-id">02 / ROGUE DRONE</span><div class="ship ship-enemy" aria-hidden="true">◇</div><h3>Silent Echo</h3><div class="health-label"><span>Hull integrity</span><strong id="enemy-hp-text">100 / 100</strong></div><progress id="enemy-hp" max="100" value="100" aria-label="Enemy HP"></progress></div>
+          </div>
+          <div class="battle-controls" id="battle-controls"><button class="button primary" type="button" data-action="attack">↗ Attack</button><button class="button secondary" type="button" data-action="defend">◇ Defend</button><button class="button secondary" type="button" data-action="heal" id="heal-button">+ Repair <span id="repairs-left">3</span></button></div>
+          <p class="feedback" id="battle-message" role="status" aria-live="polite">Choose a move. The drone responds after every valid turn.</p>
+          <div class="battle-bottom"><span id="battle-rules">Attack 8–15 · Enemy 5–14 · Critical chance 10%</span><button class="text-button" type="button" id="restart-battle">Restart simulation ↻</button></div>
+        </div>
+        <aside class="telemetry panel" aria-labelledby="log-title"><div class="panel-top"><h3 id="log-title">Flight recorder</h3><span class="live-dot" aria-hidden="true"></span></div><p class="muted small">The last five actions, newest first.</p><ol id="battle-log" class="battle-log" aria-live="polite"></ol><details><summary>Flight manual</summary><p id="battle-manual"></p></details></aside>
+      </div>
+    </section>
+
+    <section class="section wrap" id="night-board" aria-labelledby="board-title">
+      <div class="section-heading"><div><p class="eyebrow">02 / THE NIGHT BOARD</p><h2 id="board-title">Good nights take a plan.</h2></div><p>From a telescope check to the last song.<br>Your Astro Club evening, in motion.</p></div>
+      <div class="board-toolbar panel"><div class="field compact"><label for="board-search">Find a task</label><input type="search" id="board-search" placeholder="Try telescope, guitar, Moon…"></div><div class="field compact"><label for="tag-filter">Department</label><select id="tag-filter"><option value="all">All departments</option></select></div><div class="field compact"><label for="priority-sort">Sort by</label><select id="priority-sort"><option value="priority">Priority first</option><option value="title">Title A–Z</option></select></div><div class="completion"><span id="board-progress-text"></span><progress id="board-progress" value="0" max="100" aria-label="Completed tasks"></progress></div></div>
+      <p id="board-message" class="feedback board-message" role="status" aria-live="polite"></p>
+      <p id="board-summary" class="board-summary"></p>
+      <div id="task-board" class="kanban" aria-label="Astro Club task board"></div>
+      <p class="section-note">A maximum of three tasks can be in progress. Counts and completion include the whole board, even while filtering.</p>
+    </section>
+
+    <section class="section wrap" id="crew" aria-labelledby="crew-title">
+      <div class="section-heading"><div><p class="eyebrow">03 / FIND YOUR CREW</p><h2 id="crew-title">Every orbit needs you.</h2></div><p>Build your fictional crew identity.<br>Twenty points. Your kind of explorer.</p></div>
+      <div class="crew-layout">
+        <form id="crew-form" class="panel crew-form">
+          <div class="panel-top"><h3>Crew registration</h3><span class="pill">CHARACTER CREATOR</span></div>
+          <div id="form-errors" class="error-summary" role="alert" tabindex="-1" hidden></div>
+          <div class="field"><label for="crew-name">Callsign <span>3–18 characters</span></label><input id="crew-name" name="callsign" type="text" required minlength="3" maxlength="18" pattern="[A-Za-z][A-Za-z0-9 _\-]{2,17}" autocomplete="off" placeholder="e.g. Xialik" aria-describedby="name-hint crew-name-error"><p class="hint" id="name-hint">Start with a letter. Nova, Vega and Orion are already on the crew.</p><p class="field-error" id="crew-name-error"></p></div>
+          <div class="form-row"><div class="field"><label for="crew-role">Your role</label><select id="crew-role" name="role" required aria-describedby="role-hint crew-role-error"><option value="">Choose a role</option><option value="observer">Observer</option><option value="engineer">Engineer</option><option value="pilot">Pilot</option></select><p class="hint" id="role-hint">Your primary skill needs at least 7 points.</p><p class="field-error" id="crew-role-error"></p></div><div class="field"><label for="crew-color">Mission color</label><select id="crew-color" name="color" required aria-describedby="color-hint crew-color-error"><option value="">Choose a color</option><option value="mint">Aurora mint</option><option value="violet">Nebula violet</option><option value="amber">Signal amber</option></select><p class="hint" id="color-hint">Signal amber is reserved for Engineers.</p><p class="field-error" id="crew-color-error"></p></div></div>
+          <fieldset class="skills-fieldset"><legend>Distribute your skill points</legend><div class="skill-budget"><span>Each skill: 1–10</span><strong id="points-left" aria-live="polite">0 points left</strong></div><div class="skills-grid">
+            <div class="field"><label for="navigation">Navigation</label><input id="navigation" name="navigation" type="number" min="1" max="10" step="1" value="5" required aria-describedby="navigation-error"><p class="field-error" id="navigation-error"></p></div>
+            <div class="field"><label for="engineering">Engineering</label><input id="engineering" name="engineering" type="number" min="1" max="10" step="1" value="5" required aria-describedby="engineering-error"><p class="field-error" id="engineering-error"></p></div>
+            <div class="field"><label for="science">Science</label><input id="science" name="science" type="number" min="1" max="10" step="1" value="5" required aria-describedby="science-error"><p class="field-error" id="science-error"></p></div>
+            <div class="field"><label for="stamina">Stamina</label><input id="stamina" name="stamina" type="number" min="1" max="10" step="1" value="5" required aria-describedby="budget-hint stamina-error"><p class="field-error" id="stamina-error"></p></div>
+          </div><p class="hint" id="budget-hint">The four skills must total exactly 20. The total is validated with Stamina.</p></fieldset>
+          <div class="form-actions"><button class="button primary" type="submit">Issue crew ID <span aria-hidden="true">↗</span></button><button class="text-button" type="reset">Clear form</button></div>
+          <p class="hint">Fictional characters only. Everything stays in this page and resets on reload.</p>
+        </form>
+        <aside class="crew-preview-column"><div class="preview-heading"><span class="eyebrow">YOUR CREW ID</span><span class="small muted">LIVE PREVIEW</span></div><div id="crew-preview" aria-label="Live character preview"></div><p class="preview-note">A good crew has different strengths.<br>Leave room for yours.</p><div id="crew-result" role="status" aria-live="polite"></div></aside>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap site-footer"><a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">◎</span> ORBIT</a><p>Built for the hours when curiosity wins.<br><span>Alikhan Shikhiyev · IT-2510 · Astana IT University · JavaScript assignment 05</span></p><a href="#top" class="text-button">Back to orbit ↑</a></footer>
+</body>
+</html>
